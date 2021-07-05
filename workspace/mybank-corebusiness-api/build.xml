@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="mybank-corebusiness-api">
+    <property environment="env"/>
+    <property name="mybank-corebusiness-backend.location" value="../mybank-corebusiness-backend"/>
+    <property name="mybank-corebusiness-sdk.location" value="../mybank-corebusiness-sdk"/>
+    <property name="mybank-corebusiness-sdk-test.location" value="../mybank-corebusiness-sdk-test"/>
+    <property name="ECLIPSE_HOME" value="../../ide/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath">
+        <pathelement location="../../ide/tomcat/lib/annotations-api.jar"/>
+        <pathelement location="../../ide/tomcat/lib/catalina-ant.jar"/>
+        <pathelement location="../../ide/tomcat/lib/catalina-ha.jar"/>
+        <pathelement location="../../ide/tomcat/lib/catalina-storeconfig.jar"/>
+        <pathelement location="../../ide/tomcat/lib/catalina-tribes.jar"/>
+        <pathelement location="../../ide/tomcat/lib/catalina.jar"/>
+        <pathelement location="../../ide/tomcat/lib/ecj-4.6.3.jar"/>
+        <pathelement location="../../ide/tomcat/lib/el-api.jar"/>
+        <pathelement location="../../ide/tomcat/lib/jasper-el.jar"/>
+        <pathelement location="../../ide/tomcat/lib/jasper.jar"/>
+        <pathelement location="../../ide/tomcat/lib/jaspic-api.jar"/>
+        <pathelement location="../../ide/tomcat/lib/jsp-api.jar"/>
+        <pathelement location="../../ide/tomcat/lib/servlet-api.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-api.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-coyote.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-dbcp.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-i18n-es.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-i18n-fr.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-i18n-ja.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-i18n-ru.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-jdbc.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-jni.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-util-scan.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-util.jar"/>
+        <pathelement location="../../ide/tomcat/lib/tomcat-websocket.jar"/>
+        <pathelement location="../../ide/tomcat/lib/websocket-api.jar"/>
+    </path>
+    <path id="mybank-corebusiness-api.classpath">
+        <pathelement location="bin"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="mybank-corebusiness-api.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${mybank-corebusiness-backend.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mybank-corebusiness-backend.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${mybank-corebusiness-sdk.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mybank-corebusiness-sdk.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${mybank-corebusiness-sdk-test.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mybank-corebusiness-sdk-test.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+</project>

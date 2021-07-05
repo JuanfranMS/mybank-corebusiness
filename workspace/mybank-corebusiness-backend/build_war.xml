@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?eclipse.ant.import?>
+<project name="build-backend" default="war" basedir=".">
+
+    <target name="war">
+        <copy file="../version.txt" todir="WebContent" />
+        <war destfile="mybank-corebusiness-backend.war" webxml="WebContent/WEB-INF/web.xml">
+            <fileset dir="WebContent">
+                <include name="**" />
+            </fileset>
+            <classes dir="../mybank-corebusiness-backend/build/classes"/>
+            <classes dir="../mybank-corebusiness-api/bin"/>
+            <classes dir="../mybank-corebusiness-sdk/bin"/>
+        </war>
+    </target> 
+	
+</project>
