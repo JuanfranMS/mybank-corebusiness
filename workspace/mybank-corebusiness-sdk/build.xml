@@ -49,7 +49,6 @@
     <path id="mybank-corebusiness-sdk.classpath">
         <pathelement location="bin"/>
         <path refid="mybank-corebusiness-api.classpath"/>
-        <pathelement location="lib/javax.annotation-api-1.2.jar"/>
         <path refid="EAR Libraries.libraryclasspath"/>
         <path refid="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath"/>
         <pathelement location="${mybank-corebusiness-backend.location}/WebContent/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar"/>

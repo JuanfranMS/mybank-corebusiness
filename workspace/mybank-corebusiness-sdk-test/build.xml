@@ -66,7 +66,6 @@
     <path id="mybank-corebusiness-sdk.classpath">
         <pathelement location="${mybank-corebusiness-sdk.location}/bin"/>
         <path refid="mybank-corebusiness-api.classpath"/>
-        <pathelement location="${mybank-corebusiness-sdk.location}/lib/javax.annotation-api-1.2.jar"/>
         <path refid="EAR Libraries.libraryclasspath"/>
         <path refid="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath"/>
         <pathelement location="${mybank-corebusiness-backend.location}/WebContent/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar"/>
@@ -187,7 +186,43 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+    <target name="mybank-corebusiness-sdk-test">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.mybank.corebusiness.sdk.test.TransactionTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="mybank-corebusiness-sdk-test.classpath"/>
+        </junit>
+    </target>
+    <target name="TransactionTest.invalidTransactions">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.mybank.corebusiness.sdk.test.TransactionTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="mybank-corebusiness-sdk-test.classpath"/>
+        </junit>
+    </target>
     <target name="TransactionTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.mybank.corebusiness.sdk.test.TransactionTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="mybank-corebusiness-sdk-test.classpath"/>
+        </junit>
+    </target>
+    <target name="TransactionTest.someValidTransactions">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.mybank.corebusiness.sdk.test.TransactionTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="mybank-corebusiness-sdk-test.classpath"/>
+        </junit>
+    </target>
+    <target name="TransactionTest.transactionStatus">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>

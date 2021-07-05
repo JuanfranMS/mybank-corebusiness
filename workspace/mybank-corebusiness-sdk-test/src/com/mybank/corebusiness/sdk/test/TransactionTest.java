@@ -51,8 +51,8 @@ public class TransactionTest {
         // Generate transaction for account 1.
         String reference1 = "REF1111";
         Transaction transaction1 = new Transaction();
-        long amount1 = 10050; // 100.50 €
-        long fee1 = 100; // 1.00 €
+        long amount1 = 10050; // 100.50 monetary units
+        long fee1 = 100; // 1.00 monetary units
         transaction1.setReference(reference1); // Providing reference.
         transaction1.setAccountIban(iban1);
         transaction1.setDateEpoch(System.currentTimeMillis()); // Providing time-stamp.
@@ -67,7 +67,7 @@ public class TransactionTest {
 
         // Generate transaction for account 2.
         Transaction transaction2 = new Transaction();
-        long amount2 = 555599; // 5555.99 €
+        long amount2 = 555599; // 5555.99 monetary units
         transaction2.setAccountIban(iban2);
         transaction2.setAmount(amount2);
         String reference2 = transactionClient.createTransaction(transaction2);

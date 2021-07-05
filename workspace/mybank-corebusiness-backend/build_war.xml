@@ -3,7 +3,6 @@
 <project name="build-backend" default="war" basedir=".">
 
     <target name="war">
-        <copy file="../version.txt" todir="WebContent" />
         <war destfile="mybank-corebusiness-backend.war" webxml="WebContent/WEB-INF/web.xml">
             <fileset dir="WebContent">
                 <include name="**" />
