@@ -9,27 +9,27 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class BankAccount implements Serializable {
 
-	/** Unique public identifier of a bank account. */
-	private String accountIban;
-	
-	/** Current consolidated amount of money (cents of monetary units). TODO: required more precision than cents? */
-	private long balance;
+    /** Unique public identifier of a bank account. */
+    private String accountIban;
+    
+    /** Current consolidated amount of money (cents of monetary units). TODO: required more precision than cents? */
+    private long balance;
 
-	// TODO: add more information about a bank account (owner name, NIF...)
+    // TODO: add more information about a bank account (owner name, NIF...)
 
-	public String getAccountIban() {
-		return accountIban;
-	}
+    public String getAccountIban() {
+        return accountIban;
+    }
 
-	public void setAccountIban(String accountIban) {
-		this.accountIban = accountIban;
-	}
+    public void setAccountIban(String accountIban) {
+        this.accountIban = accountIban;
+    }
 
-	public long getBalance() {
-		return balance;
-	}
+    public long getBalance() {
+        return balance;
+    }
 
-	public void setBalance(long balance) {
-		this.balance = balance;
-	}
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
 }

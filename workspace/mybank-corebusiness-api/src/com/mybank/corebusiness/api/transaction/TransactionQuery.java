@@ -9,26 +9,26 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class TransactionQuery implements Serializable {
 
-	/** Unique identifier of the account the requested transactions applied on. */
-	private String accountIban;
-	
-	/** Whether the provided transactions will be given sorted by amount, otherwise by applicable date. */
-	private boolean sortByAmount;
-	
-	/** Whether the provided transactions will be given in descending order, otherwise ascending. */
-	private boolean sortDescending;
-	
-	/** Earliest time-stamp of the range the provided transactions must fall into. Pass 0 for unlimited. */
-	private long since;
-	
-	/** Latest time-stamp of the range the provided transactions must fall into. Pass 0 for unlimited. */
-	private long until;
-	
-	/** Pagination in case of too much content: page number to be provided, 0-based. */
-	private int pageNumber;
-	
-	/** Pagination in case of too much content: maximum number of transactions to provide per page. */
-	private int pageSize;
+    /** Unique identifier of the account the requested transactions applied on. */
+    private String accountIban;
+    
+    /** Whether the provided transactions will be given sorted by amount, otherwise by applicable date. */
+    private boolean sortByAmount;
+    
+    /** Whether the provided transactions will be given in descending order, otherwise ascending. */
+    private boolean sortDescending;
+    
+    /** Earliest time-stamp of the range the provided transactions must fall into. Pass 0 for unlimited. */
+    private long since;
+    
+    /** Latest time-stamp of the range the provided transactions must fall into. Pass 0 for unlimited. */
+    private long until;
+    
+    /** Pagination in case of too much content: page number to be provided, 0-based. */
+    private int pageNumber;
+    
+    /** Pagination in case of too much content: maximum number of transactions to provide per page. */
+    private int pageSize;
 
     public String getAccountIban() {
         return accountIban;
