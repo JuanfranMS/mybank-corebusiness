@@ -14,7 +14,7 @@ This project has been developed using the following tools:
 1. Tested on Windows 10
 2. Tested on Linux Ubuntu 18.04.4 LTS
 
-These testing environments require previously described development environment for the applicable operatings system.
+These testing environments require previously described development environment for the applicable operating system.
 
 ## How to Build
 
